@@ -1,12 +1,16 @@
 from joblib import load
 
+class Prediction:
 
-def precit(X_val):
-    """
-    Loading the model and predicting with validation set
-    """
-    regression_model = load('regression.joblib')
+    def __init__(self, model_path):
+        self.model_path = model_path
 
-    y_pred_log_reg_val = regression_model.predict(X_val)
+    def predict(X_val):
+        """
+        Loading the model and predicting with validation set
+        """
+        regression_model = load('regression.joblib')
 
-    return (y_pred_log_reg_val)
+        y_pred_log_reg_val = regression_model.predict(X_val)
+
+        return (y_pred_log_reg_val)
